@@ -6,7 +6,7 @@ import BookList from "./Books/BookList";
 const App = () => {
   return (
     <>
-      <Header name="Margit Tennosaar" />
+      <Header name="Rajon Al Saeid" />
       <main>
         <BookList />
       </main>
