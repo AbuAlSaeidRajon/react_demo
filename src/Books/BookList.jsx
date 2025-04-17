@@ -30,6 +30,12 @@ const BookList = () => {
     setSearchValue(event.target.value);
   };
 
+  // Filter books based on searchValue
+  const filteredBooks = booksData.filter((book) =>
+    book.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+    book.author.toLowerCase().includes(searchValue.toLowerCase())
+  );
+
   return (
     <>
       <h1>Books catalog</h1>
@@ -45,8 +51,7 @@ const BookList = () => {
       <h2>Your search word is: {searchValue}</h2>
 
       <div className="boxes">
-        {/* TODO for easter break -> use searchValue to filter the list based on what is typed */}
-        {booksData.map((book) => (
+        {filteredBooks.map((book) => (
           <BookCard
             key={book.id}
             {...book}
