@@ -38,7 +38,7 @@ const BookList = () => {
 
   return (
     <>
-      <h1>Books catalog</h1>
+      <h1>Books Catalog</h1>
       <label htmlFor="search">Search</label>
       <input
         type="text"

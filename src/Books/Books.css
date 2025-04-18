@@ -1,76 +1,151 @@
+/* Layout for the books container */
 .boxes {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  margin: 2rem;
+  justify-content: space-between;
+  gap: 2rem; /* Add spacing between rows and columns */
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 1200px; /* Restrict the width for better layout on wider screens */
 }
 
+/* Styling for individual book cards */
 .bookCard {
   background-color: white;
   color: #333;
-  margin: 1rem;
+  margin: 0; /* Remove extra margin (gap is already handled by the container) */
   border-radius: 10px;
-  width: 30%;
-  min-height: 200px;
+  width: calc(33.333% - 1.5rem); /* Three cards per row */
+  min-height: 250px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add some shadow for better styling */
   position: relative;
+  display: flex;
+  flex-direction: column; /* Ensure proper alignment of content */
+  justify-content: space-between; /* Add space between header, content, and footer */
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.bookCard button {
-  margin-right: 0.5rem;
+/* Hover effect */
+.bookCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Header for book cards */
 .bookCard-header {
   border-radius: 10px 10px 0 0;
   text-align: left;
-  padding: 2rem 1rem 1rem;
-}
-.bookCard-content {
-  text-align: left;
-  padding: 0 1rem 1rem;
+  padding: 1rem;
+  background-color: #f9f9f9; /* Light background for the header */
+  font-weight: bold;
+  color: #444;
 }
 
+/* Content area for book cards */
+.bookCard-content {
+  flex-grow: 1; /* Push the footer to the bottom */
+  padding: 1rem;
+  text-align: left;
+}
+
+/* Footer of the book card */
 .bookCard-footer {
-  border-top: 1px solid #dbdbdb;
   text-align: left;
   padding: 1rem;
+  display: flex;
+  justify-content: space-between; /* Adds spacing between buttons */
+  gap: 1rem; /* Add gap between buttons */
 }
 
+/* Buttons inside the book card */
+.bookCard button {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.bookCard button:hover {
+  background-color: #0056b3;
+}
+
+/* Favorite icon */
 .favIcon {
   position: absolute;
   right: 1rem;
   top: 1rem;
-  font-size: 20px;
-}
-.price {
   font-size: 1.5rem;
-  text-align: right;
-}
-.genre {
-  font-size: 0.8rem;
-  font-style: italic;
+  color: #ff4081;
+  cursor: pointer;
+  transition: transform 0.3s;
 }
 
+.favIcon:hover {
+  transform: scale(1.2);
+}
+
+/* Price styling */
+.price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: right;
+  color: #28a745;
+}
+
+/* Genre styling */
+.genre {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #666;
+}
+
+/* Stock indicator */
 .stock {
-  background-color: green;
+  background-color: #28a745;
   display: inline-block;
   padding: 2px 10px;
   border-radius: 5px;
   color: white;
-  position: absolute;
-  top: -0.5rem;
-  left: -0.5rem;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 
 .outOf {
-  background-color: grey;
+  background-color: #6c757d;
+  color: white;
 }
 
+/* Input field styling */
 input {
-  padding: 1rem;
+  padding: 0.8rem;
   font-family: inherit;
-  font-size: inherit;
-  border-radius: 5px;
-  border: none;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
   margin-left: 1rem;
+  width: 250px;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Responsive design for tablets */
+@media (max-width: 1024px) {
+  .bookCard {
+    width: calc(50% - 1.5rem); /* Two cards per row */
+  }
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .bookCard {
+    width: calc(100% - 1.5rem); /* Single card per row */
+  }
 }
