@@ -1,23 +1,53 @@
 /* General header styling */
 header {
   height: 70px;
-  background-color: #333;
+  background: linear-gradient(90deg, #333, #555);
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
-  color: white;
   position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Sliding decorative lines */
+header::before,
+header::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 2px;
+  background: linear-gradient(to right, #ff4081, #007bff);
+  top: 0;
+  transform: translateX(-50%);
+  animation: slide 5s linear infinite;
+}
+
+header::after {
+  top: auto;
+  bottom: 0;
+  animation-direction: reverse;
+}
+
+/* Sliding animation */
+@keyframes slide {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(50%);
+  }
 }
 
 /* Logo styling */
 .logo h2 {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #fff;
+  color: white;
   margin: 0;
   transition: color 0.3s;
 }
@@ -35,11 +65,11 @@ nav ul {
 }
 
 nav ul li {
-  display: inline-block; /* Inline items */
+  display: inline-block;
   margin: 0 1rem;
   font-size: 1rem;
   font-weight: 500;
-  color: #fff;
+  color: white;
   cursor: pointer;
   position: relative;
   transition: color 0.3s;
@@ -77,7 +107,7 @@ nav ul li:hover::after {
 }
 
 .hamburger div {
-  background-color: #fff;
+  background-color: white;
   height: 3px;
   border-radius: 5px;
   transition: transform 0.3s, opacity 0.3s;
