@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./Books.css";
 
 const BookCard = ({
@@ -11,12 +12,24 @@ const BookCard = ({
   id,
   onToggleStock,
   onToggleFavorite,
+  onPriceChange,
   ...rest
 }) => {
-  /*   console.log(rest); */
-  const eventHandler = () => {
-    console.log("You clicked 'Add wishlist' button is clicked");
+  const [isEditing, setIsEdititng] = useState(false);
+  const [newPrice, setNewPrice] = useState(price);
+
+  const handleSave = () => {
+    onPriceChange(id, newPrice);
+    setIsEdititng(!isEditing);
   };
+
+  const handleCancel = () => {
+    setNewPrice(price);
+    setIsEdititng(!isEditing);
+  };
+
+  const isSaveDisabled =
+    newPrice === "" || parseFloat(newPrice) === parseFloat(price);
 
   return (
     <div className="bookCard">
@@ -35,13 +48,30 @@ const BookCard = ({
         <p className="genre">{genre}</p>
       </div>
       <div className="bookCard-content">
-        <div></div>
-        <p className="price">{price}€</p>
+        {isEditing ? (
+          <input
+            type="text"
+            value={newPrice}
+            onChange={(e) => setNewPrice(e.target.value)}
+          />
+        ) : (
+          <p className="price">{price}€</p>
+        )}
       </div>
       <div className="bookCard-footer">
-        {/*       <button onClick={() => onEventHandler(id)}>Read more</button> */}
         <button onClick={onEventHandler}>See more</button>
-        {!inStock && <button onClick={eventHandler}>Add to Wishlist</button>}
+        {!inStock && <button>Add to Wishlist</button>}
+
+        {isEditing ? (
+          <>
+            <button onClick={handleSave} disabled={isSaveDisabled}>
+              Save
+            </button>
+            <button onClick={handleCancel}>Cancel</button>
+          </>
+        ) : (
+          <button onClick={() => setIsEdititng(!isEditing)}>Edit</button>
+        )}
       </div>
     </div>
   );
