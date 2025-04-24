@@ -1,12 +1,22 @@
 /* Layout for the books container */
+/* Main background color */
+body {
+  background: linear-gradient(135deg, #1f1c2c, #928dab); /* Muted gradient */
+  color: #f0f0f0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Styling for the books container */
 .boxes {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 2rem; /* Add spacing between rows and columns */
+  gap: 2rem;
   padding: 2rem;
   margin: 0 auto;
-  max-width: 1200px; /* Restrict the width for better layout on wider screens */
+  max-width: 1200px;
 }
 
 /* Styling for individual book cards */

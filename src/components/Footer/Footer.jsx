@@ -1,4 +1,5 @@
 import "./Footer.css";
+
 const Footer = ({ year }) => {
   return (
     <footer>
