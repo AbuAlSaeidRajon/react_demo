@@ -1,7 +1,7 @@
 /* General header styling */
 header {
   height: 70px;
-  background: linear-gradient(90deg, #333, #555);
+  background: linear-gradient(90deg, #1e3c72, #2a5298); /* Gradient with professional blue tones */
   color: white;
   display: flex;
   justify-content: space-between;

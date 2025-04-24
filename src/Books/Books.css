@@ -11,18 +11,19 @@
 
 /* Styling for individual book cards */
 .bookCard {
-  background-color: white;
+  background: linear-gradient(135deg, #ffffff, #f3f4f7); /* Subtle gradient for a clean and modern look */
   color: #333;
-  margin: 0; /* Remove extra margin (gap is already handled by the container) */
+  margin: 0;
   border-radius: 10px;
-  width: calc(33.333% - 1.5rem); /* Three cards per row */
+  width: calc(33.333% - 1.5rem);
   min-height: 250px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add some shadow for better styling */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
   display: flex;
-  flex-direction: column; /* Ensure proper alignment of content */
-  justify-content: space-between; /* Add space between header, content, and footer */
+  flex-direction: column;
+  justify-content: space-between;
   transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
 }
 
 /* Hover effect */
