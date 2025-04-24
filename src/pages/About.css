@@ -1,0 +1,32 @@
+.about-container {
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+  }
+  
+  .about-container h1 {
+    font-size: 2.5rem;
+    color: #1e3c72;
+    margin-bottom: 1rem;
+  }
+  
+  .about-container section {
+    margin-top: 2rem;
+  }
+  
+  .about-container h2 {
+    font-size: 1.8rem;
+    color: #2a5298;
+    margin-bottom: 0.5rem;
+  }
+  
+  .about-container ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+  
+  .about-container ul li {
+    margin-bottom: 0.5rem;
+  }
