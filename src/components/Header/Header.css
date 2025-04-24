@@ -14,42 +14,18 @@ header {
   overflow: hidden;
 }
 
-/* Sliding decorative lines */
-header::before,
-header::after {
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 2px;
-  background: linear-gradient(to right, #ff4081, #007bff);
-  top: 0;
-  transform: translateX(-50%);
-  animation: slide 5s linear infinite;
-}
-
-header::after {
-  top: auto;
-  bottom: 0;
-  animation-direction: reverse;
-}
-
-/* Sliding animation */
-@keyframes slide {
-  0% {
-    transform: translateX(-50%);
-  }
-  100% {
-    transform: translateX(50%);
-  }
-}
-
 /* Logo styling */
 .logo h2 {
   font-size: 1.5rem;
   font-weight: bold;
   color: white;
   margin: 0;
+  text-transform: uppercase;
   transition: color 0.3s;
+}
+
+.logo a {
+  text-decoration: none;
 }
 
 .logo h2:hover {
@@ -57,16 +33,16 @@ header::after {
 }
 
 /* Navigation menu styling */
-nav ul {
+.nav-links {
   list-style: none;
   display: flex;
   margin: 0;
   padding: 0;
+  gap: 1.5rem; /* Adds space between navigation links */
 }
 
-nav ul li {
+.nav-links li {
   display: inline-block;
-  margin: 0 1rem;
   font-size: 1rem;
   font-weight: 500;
   color: white;
@@ -75,12 +51,18 @@ nav ul li {
   transition: color 0.3s;
 }
 
-nav ul li:hover {
-  color: #ff4081;
+.nav-links li a {
+  text-decoration: none;
+  color: inherit; /* Inherit color from parent (white) */
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-links li:hover a {
+  color: #ff4081; /* Highlight color on hover */
 }
 
 /* Underline effect on hover */
-nav ul li::after {
+.nav-links li::after {
   content: "";
   position: absolute;
   width: 0;
@@ -92,8 +74,19 @@ nav ul li::after {
   transform: translateX(-50%);
 }
 
-nav ul li:hover::after {
+.nav-links li:hover::after {
   width: 100%;
+}
+
+/* Responsive Design: Show Hamburger Menu on Smaller Screens */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide navigation links */
+  }
+
+  .hamburger {
+    display: flex; /* Show hamburger icon */
+  }
 }
 
 /* Hamburger menu for mobile view */
@@ -113,15 +106,9 @@ nav ul li:hover::after {
   transition: transform 0.3s, opacity 0.3s;
 }
 
-/* Mobile menu toggle */
-.nav-links {
+/* Active mobile menu toggle */
+.nav-links.active {
   display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.nav-links.mobile {
-  display: none;
   flex-direction: column;
   position: absolute;
   top: 70px;
@@ -132,21 +119,6 @@ nav ul li:hover::after {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.nav-links.mobile li {
+.nav-links.active li {
   margin: 1rem 0;
-}
-
-.nav-links.active {
-  display: flex;
-}
-
-/* Responsive design for tablets and smaller screens */
-@media (max-width: 768px) {
-  nav ul {
-    display: none; /* Hide navigation links */
-  }
-
-  .hamburger {
-    display: flex; /* Show the hamburger icon */
-  }
 }
