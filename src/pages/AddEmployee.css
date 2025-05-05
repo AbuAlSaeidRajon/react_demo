@@ -1,0 +1,104 @@
+/* General styling for the Add Employee container */
+.add-employee-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Heading styling */
+  .add-employee-container h1 {
+    text-align: center;
+    color: #1e3c72;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Form styling */
+  .add-employee-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  /* Input field styling */
+  .add-employee-form input {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  /* Input focus styling */
+  .add-employee-form input:focus {
+    border-color: #1e3c72;
+    box-shadow: 0 0 5px rgba(30, 60, 114, 0.5);
+    outline: none;
+  }
+  
+  /* Button styling */
+  .add-employee-form button {
+    background-color: #1e3c72;
+    color: #ffffff;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  /* Button hover effects */
+  .add-employee-form button:hover {
+    background-color: #2a5298;
+    transform: translateY(-2px);
+  }
+  
+  /* Button active effect */
+  .add-employee-form button:active {
+    transform: translateY(0);
+  }
+  
+  /* Add subtle animations to the form */
+  .add-employee-form input,
+  .add-employee-form button {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .add-employee-container {
+      padding: 1.5rem;
+    }
+  
+    .add-employee-container h1 {
+      font-size: 1.5rem;
+    }
+  
+    .add-employee-form input {
+      font-size: 0.9rem;
+    }
+  
+    .add-employee-form button {
+      font-size: 0.9rem;
+    }
+  }
