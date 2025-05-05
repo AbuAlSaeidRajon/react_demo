@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { books } from "../../data/booksData"; // Adjusted path
 import BookCard from "./BookCard";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 
 const BookList = () => {
   const [booksData, setBooksData] = useState(books);
@@ -48,8 +46,7 @@ const BookList = () => {
   });
 
   return (
-    <><Header name="Rajon Al Saeid" />
-    <div className="books" style={{marginTop: 10}}>
+    <div className="books" style={{ marginTop: 10 }}>
       <h1>Books Catalog</h1>
       <label htmlFor="search">Search:</label>
       <input
@@ -76,8 +73,6 @@ const BookList = () => {
         )}
       </div>
     </div>
-    <Footer year={2025} />
-    </>
   );
 };
 
