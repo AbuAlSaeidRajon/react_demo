@@ -1,5 +1,7 @@
-import { createBrowserRouter, RouterProvider } from "react-router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import "./App.css";
 import Root from "./pages/Root";
 import About from "./pages/About";
@@ -11,8 +13,26 @@ import Home from "./pages/Home";
 const App = () => {
   const [employees, setEmployees] = useState([]);
 
-  const handleAddEmployee = (newEmployee) => {
-    setEmployees([...employees, newEmployee]);
+  const fetchEmployees = async () => {
+    try {
+      const res = await axios.get("http://localhost:3001/employees");
+      setEmployees(res.data);
+    } catch (error) {
+      console.error("Error fetching employees:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchEmployees();
+  }, []);
+
+  const handleAddEmployee = async (newEmployee) => {
+    try {
+      await axios.post("http://localhost:3001/employees", newEmployee);
+      fetchEmployees(); // Re-fetch after adding
+    } catch (error) {
+      console.error("Error adding employee:", error);
+    }
   };
 
   const router = createBrowserRouter([
@@ -20,26 +40,11 @@ const App = () => {
       path: "/",
       element: <Root />,
       children: [
-        {
-          path: "/",
-          element: <Home />, // Home is now its own component
-        },
-        {
-          path: "/about",
-          element: <About />,
-        },
-        {
-          path: "/books",
-          element: <BookList />,
-        },
-        {
-          path: "/add-employee",
-          element: <AddEmployee onAddEmployee={handleAddEmployee} />,
-        },
-        {
-          path: "/person-list",
-          element: <PersonList employees={employees} />,
-        },
+        { path: "/", element: <Home /> },
+        { path: "/about", element: <About /> },
+        { path: "/books", element: <BookList /> },
+        { path: "/add-employee", element: <AddEmployee onAddEmployee={handleAddEmployee} /> },
+        { path: "/person-list", element: <PersonList employees={employees} /> },
       ],
     },
   ]);
