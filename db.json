@@ -1,0 +1,51 @@
+{
+  "employees": [
+    {
+      "id": "1",
+      "name": "Margit Tennosaar",
+      "title": "CEO",
+      "salary": 120000,
+      "phone": "123-456-7890",
+      "email": "margit@example.com",
+      "animal": "Fox",
+      "startDate": "2021-01-01",
+      "location": "Tallinn",
+      "department": "Management",
+      "skills": [
+        "Leadership",
+        "Strategy"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Mikko Laakso",
+      "title": "Designer",
+      "salary": 75000,
+      "phone": "123-456-7891",
+      "email": "mikko@example.com",
+      "animal": "Wolf",
+      "startDate": "2022-03-15",
+      "location": "Helsinki",
+      "department": "Design",
+      "skills": [
+        "UI/UX",
+        "Prototyping"
+      ]
+    },
+    {
+      "id": 1749464731888,
+      "name": "Md Abu Al Saeid",
+      "title": "wef",
+      "salary": "32456",
+      "phone": "0451792722",
+      "email": "khanrajon5@gmail.com",
+      "animal": "Cat",
+      "startDate": "11.12.2024",
+      "location": "Helsinki ",
+      "department": "IT",
+      "skills": [
+        "Frontend"
+      ]
+    }
+  ]
+}

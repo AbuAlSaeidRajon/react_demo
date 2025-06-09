@@ -1,29 +1,16 @@
-import { Link } from "react-router-dom";
+// Header.jsx
 import "./Header.css";
 
 const Header = ({ name }) => {
   return (
-    <header>
-      <div className="logo">
-        <Link to="/">
-          <h2>{name}</h2>
-        </Link>
-      </div>
+    <header className="main-header">
+      <h1>{name}'s Website</h1>
       <nav>
-        <ul className="nav-links">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/books">Books</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/add-employee">Add Employee</Link>
-          </li>
-        </ul>
+        <a href="/">Home</a>
+        <a href="/books">Books</a>
+        <a href="/about">About</a>
+        <a href="/add-employee">Add Employee</a>
+        <a href="/person-list">Employee List</a>
       </nav>
     </header>
   );

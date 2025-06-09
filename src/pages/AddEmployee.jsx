@@ -26,6 +26,12 @@ const AddEmployee = ({ onAddEmployee }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // ✅ Validation block here (inside function)
+    if (!formData.name || !formData.email) {
+      alert("Name and Email are required.");
+      return;
+    }
+
     const newEmployee = {
       id: Date.now(),
       ...formData,
