@@ -26,7 +26,6 @@ const AddEmployee = ({ onAddEmployee }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // ✅ Validation block here (inside function)
     if (!formData.name || !formData.email) {
       alert("Name and Email are required.");
       return;
@@ -39,7 +38,7 @@ const AddEmployee = ({ onAddEmployee }) => {
     };
 
     onAddEmployee(newEmployee);
-    navigate("/"); // Navigate back to the employee list
+    navigate("/person-list");
   };
 
   return (

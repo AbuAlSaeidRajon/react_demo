@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import useAxios from "./hooks/useAxios";
 
 import "./App.css";
 import Root from "./pages/Root";
@@ -12,10 +12,11 @@ import Home from "./pages/Home";
 
 const App = () => {
   const [employees, setEmployees] = useState([]);
+  const { get, post } = useAxios();
 
   const fetchEmployees = async () => {
     try {
-      const res = await axios.get("http://localhost:3001/employees");
+      const res = await get("/employees");
       setEmployees(res.data);
     } catch (error) {
       console.error("Error fetching employees:", error);
@@ -28,8 +29,8 @@ const App = () => {
 
   const handleAddEmployee = async (newEmployee) => {
     try {
-      await axios.post("http://localhost:3001/employees", newEmployee);
-      fetchEmployees(); // or push to state if you want performance
+      await post("/employees", newEmployee);
+      fetchEmployees(); // Refresh after adding
     } catch (error) {
       console.error("Error adding employee:", error);
     }
@@ -49,10 +50,7 @@ const App = () => {
         },
         {
           path: "/person-list",
-          element: <PersonList
-            employees={employees}
-            setEmployees={setEmployees}
-          />
+          element: <PersonList employees={employees} setEmployees={setEmployees} />
         },
       ],
     },
