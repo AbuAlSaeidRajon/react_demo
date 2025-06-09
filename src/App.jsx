@@ -29,7 +29,7 @@ const App = () => {
   const handleAddEmployee = async (newEmployee) => {
     try {
       await axios.post("http://localhost:3001/employees", newEmployee);
-      fetchEmployees(); // Re-fetch after adding
+      fetchEmployees(); // or push to state if you want performance
     } catch (error) {
       console.error("Error adding employee:", error);
     }
@@ -43,8 +43,17 @@ const App = () => {
         { path: "/", element: <Home /> },
         { path: "/about", element: <About /> },
         { path: "/books", element: <BookList /> },
-        { path: "/add-employee", element: <AddEmployee onAddEmployee={handleAddEmployee} /> },
-        { path: "/person-list", element: <PersonList employees={employees} /> },
+        {
+          path: "/add-employee",
+          element: <AddEmployee onAddEmployee={handleAddEmployee} />
+        },
+        {
+          path: "/person-list",
+          element: <PersonList
+            employees={employees}
+            setEmployees={setEmployees}
+          />
+        },
       ],
     },
   ]);

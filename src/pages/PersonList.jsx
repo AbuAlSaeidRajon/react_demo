@@ -1,16 +1,23 @@
 import React from "react";
+import PersonCard from "../components/PersonCard"; // Adjust path
 
-const PersonList = ({ employees }) => {
+const PersonList = ({ employees, setEmployees }) => {
+  const updateEmployee = (updatedEmp) => {
+    setEmployees((prev) =>
+      prev.map((emp) => (emp.id === updatedEmp.id ? updatedEmp : emp))
+    );
+  };
+
   return (
     <div>
       <h1>Employee List</h1>
-      <ul>
-        {employees.map((employee) => (
-          <li key={employee.id}>
-            {employee.name} - {employee.title}
-          </li>
-        ))}
-      </ul>
+      {employees.map((employee) => (
+        <PersonCard
+          key={employee.id}
+          employee={employee}
+          onUpdate={updateEmployee}
+        />
+      ))}
     </div>
   );
 };
