@@ -1,5 +1,5 @@
 import React from "react";
-import PersonCard from "../components/PersonCard"; // Adjust path
+import PersonCard from "../components/Person/PersonCard";
 
 const PersonList = ({ employees, setEmployees }) => {
   const updateEmployee = (updatedEmp) => {
@@ -11,13 +11,17 @@ const PersonList = ({ employees, setEmployees }) => {
   return (
     <div>
       <h1>Employee List</h1>
-      {employees.map((employee) => (
-        <PersonCard
-          key={employee.id}
-          employee={employee}
-          onUpdate={updateEmployee}
-        />
-      ))}
+      {employees.length === 0 ? (
+        <p>No employees found.</p>
+      ) : (
+        employees.map((employee) => (
+          <PersonCard
+            key={employee.id}
+            employee={employee}
+            onUpdate={updateEmployee}
+          />
+        ))
+      )}
     </div>
   );
 };

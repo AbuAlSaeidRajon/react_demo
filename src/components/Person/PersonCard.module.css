@@ -1,0 +1,37 @@
+.employeeCard {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .employeeCard input {
+    padding: 0.5rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .employeeCard button {
+    margin-right: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .employeeCard button:hover {
+    background: #0056b3;
+  }
+  
+  .savedMsg {
+    margin-left: 1rem;
+    color: green;
+    font-weight: bold;
+  }
+  

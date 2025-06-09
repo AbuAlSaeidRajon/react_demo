@@ -46,6 +46,36 @@
       "skills": [
         "Frontend"
       ]
+    },
+    {
+      "id": 1749470426638,
+      "name": "Raj",
+      "title": "Mr",
+      "salary": "45678",
+      "phone": "0451792722",
+      "email": "nrajon5@gmail.com",
+      "animal": "Dog",
+      "startDate": "11.12.2024",
+      "location": "Rälssintie 16B 34, Helsinki",
+      "department": "IT",
+      "skills": [
+        ""
+      ]
+    },
+    {
+      "id": 1749470749520,
+      "name": "Saeid Raj",
+      "title": "Mr",
+      "salary": "65687",
+      "phone": "0451792722",
+      "email": "khann5@gmail.com",
+      "animal": "Lion",
+      "startDate": "11.12.2024",
+      "location": "Helsinki, Vantaa, Espoo",
+      "department": "IT",
+      "skills": [
+        ""
+      ]
     }
   ]
 }
